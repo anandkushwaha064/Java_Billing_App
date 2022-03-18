@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="920.0" prefWidth="1849.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.billing.pages.ShowBills">
+   <children>
+      <VBox style="-fx-background-color: #1c1e69;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="88.0" prefWidth="270.0" />
+            <Button fx:id="Dashboard" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="46.0" prefWidth="269.0" style="-fx-background-color: #323594;" text="Dashboard" textFill="WHITE">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="CUT" size="20" />
+               </graphic>
+            </Button>
+            <Button fx:id="showBills" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="46.0" prefWidth="269.0" style="-fx-background-color: #323594;" text="Show Bills" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="BOOK" size="20" />
+               </graphic>
+            </Button>
+            <Button fx:id="close" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="46.0" prefWidth="269.0" style="-fx-background-color: #323594;" text="Close" textFill="WHITE">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="20">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </FontAwesomeIconView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="271.0" layoutY="87.0" prefHeight="898.0" prefWidth="1367.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="271.0" AnchorPane.rightAnchor="-45.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #fdfeff;">
+               <children>
+                  <ImageView fitHeight="126.0" fitWidth="937.0" layoutX="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/Heading.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="55.0" prefWidth="1443.0">
+               <children>
+                  <Label layoutX="547.0" layoutY="12.0" prefHeight="26.0" prefWidth="98.0" text="From Date:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="37.0" layoutY="12.0" prefHeight="26.0" prefWidth="140.0" text="Customer Name:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="customerNameTextField" layoutX="168.0" layoutY="6.0" prefHeight="26.0" prefWidth="360.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <DatePicker fx:id="transactionStart" layoutX="654.0" layoutY="6.0" prefHeight="37.0" prefWidth="202.0" />
+                  <Button fx:id="searchButton" layoutX="1186.0" layoutY="6.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="97.0" text="Search">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="882.0" layoutY="11.0" prefHeight="26.0" prefWidth="86.0" text="To Date:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="transactionEnd" layoutX="961.0" layoutY="6.0" prefHeight="37.0" prefWidth="202.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="646.0" prefWidth="1283.0">
+               <children>
+                  <TableView fx:id="billsTable" layoutX="14.0" layoutY="54.0" prefHeight="622.0" prefWidth="1512.0" AnchorPane.topAnchor="44.0">
+                    <columns>
+                        <TableColumn fx:id="SeNo" prefWidth="61.5999755859375" text="Se.no." />
+                        <TableColumn fx:id="CustomerName" prefWidth="305.5999755859375" text="Customer Name" />
+                        <TableColumn fx:id="Date" prefWidth="106.39996337890625" text="Date" />
+                        <TableColumn fx:id="transactionTime" prefWidth="105.5999755859375" text="Time" />
+                        <TableColumn fx:id="productCost" prefWidth="95.20001220703125" text="Total Product" />
+                        <TableColumn fx:id="scrapCost" prefWidth="109.60009765625" text="Total Scrap" />
+                        <TableColumn fx:id="customerDeposit" prefWidth="91.9998779296875" text="Cust Depo" />
+                        <TableColumn fx:id="oldAmount" prefWidth="89.5999755859375" text="Old Amo" />
+                        <TableColumn fx:id="discount" prefWidth="95.199951171875" text="Discount" />
+                        <TableColumn fx:id="totalCost" prefWidth="74.4000244140625" text="SubTotal" />
+                        <TableColumn fx:id="paid" prefWidth="67.199951171875" text="Paid" />
+                        <TableColumn fx:id="mobileNumber" prefWidth="113.60009765625" text="Mob number" />
+                        <TableColumn fx:id="print" prefWidth="88.800048828125" text="Print" />
+                        <TableColumn fx:id="delete" prefWidth="83.199951171875" text="Delete" />
+                    </columns>
+                  </TableView>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </AnchorPane>
+            <AnchorPane prefHeight="24.0" prefWidth="1371.0">
+               <children>
+                  <Label layoutX="143.0" layoutY="1.0" prefHeight="26.0" prefWidth="553.0" text="Sub Total [Product + Old - Discount] - [Scrap Cost + Deposit] + Return :">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="SearchSummary" layoutX="711.0" prefHeight="28.0" prefWidth="697.0">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
